@@ -1,0 +1,101 @@
+.listeners-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.listener-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.086);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.listener-item:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.listener-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.listener-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.listener-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.listener-stats {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.listener-stats p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #c2c2c2;
+}
+
+.active-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #1da14d;
+  border-radius: 50%;
+}
+
+.liste .pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 1rem;
+}
+
+.pagination-container button {
+  background-color: #2b2b2b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.pagination-container p {
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.pagination-container button:disabled {
+  background-color: #555555;
+  cursor: not-allowed;
+}
