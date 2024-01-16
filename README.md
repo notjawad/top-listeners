@@ -4,7 +4,7 @@ top-listeners is a [Spicetify](https://github.com/khanhas/spicetify-cli) extensi
 
 <p align="center">
     <img src="./examples//icon.png" width=1000 />
-    <img src="./examples/top.png" width=1000 />
+    <img src="./examples/top.gif" width=1000 />
 </p>
 
 ## Install
