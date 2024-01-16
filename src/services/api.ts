@@ -3,11 +3,13 @@ const BASE_URL = "https://blank-delta.vercel.app";
 export const fetchListeners = async (artist: string, artistId: string) => {
   const url = `${BASE_URL}/api/listeners/${artist}/${artistId}`;
 
+  Spicetify.showNotification("Fetching listeners...", false, 700);
   try {
     const response = await fetch(url);
     const data = await response.json();
     return data;
   } catch (error) {
+    Spicetify.showNotification("Error fetching listeners", true, 700);
     console.error(error);
   }
 };

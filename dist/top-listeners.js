@@ -56,11 +56,13 @@
   var BASE_URL = "https://blank-delta.vercel.app";
   var fetchListeners = async (artist, artistId) => {
     const url = `${BASE_URL}/api/listeners/${artist}/${artistId}`;
+    Spicetify.showNotification("Fetching listeners...", false, 700);
     try {
       const response = await fetch(url);
       const data = await response.json();
       return data;
     } catch (error) {
+      Spicetify.showNotification("Error fetching listeners", true, 700);
       console.error(error);
     }
   };
@@ -390,7 +392,7 @@
       var el = document.createElement('style');
       el.id = `topDlisteners`;
       el.textContent = (String.raw`
-  /* ../../../../Local/Temp/tmp-13060-jGU4DRVAYQx1/18d119b07a20/global.css */
+  /* ../../../../Local/Temp/tmp-14204-Ey1v2y3mipwe/18d143ee41f0/global.css */
 .listeners-container {
   width: 100%;
   height: 100%;
