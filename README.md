@@ -17,7 +17,7 @@ Copy `top-listeners.js` from the `dist` directory into your [Spicetify](https://
 | **Windows** | `%appdata%\spicetify\Extensions\` |
 
 ```sh
-spicetify config extensions songstats.js
+spicetify config extensions top-listeners.js
 spicetify apply
 ```
 
@@ -27,7 +27,7 @@ Example:
 ```ini
 [AdditionalOptions]
 ...
-extensions = autoSkipExplicit.js|shuffle+.js|trashbin.js|songstats.js
+extensions = ...|...|top-listeners.js
 ```
 
 Then run:
