@@ -56,13 +56,17 @@
   var BASE_URL = "https://blank-delta.vercel.app";
   var fetchListeners = async (artist, artistId) => {
     const url = `${BASE_URL}/api/listeners/${artist}/${artistId}`;
-    Spicetify.showNotification("Fetching listeners...", false, 700);
+    Spicetify.showNotification("Fetching listeners...", false, 2e3);
     try {
       const response = await fetch(url);
       const data = await response.json();
       return data;
     } catch (error) {
-      Spicetify.showNotification("Error fetching listeners", true, 700);
+      Spicetify.showNotification(
+        `Error fetching listeners: ${error}`,
+        true,
+        2e3
+      );
       console.error(error);
     }
   };
@@ -260,17 +264,6 @@
     const [currentPage, setCurrentPage] = (0, import_react3.useState)(1);
     const [users, setUsers] = (0, import_react3.useState)([]);
     (0, import_react3.useEffect)(() => {
-      const storedPage = Spicetify.LocalStorage.get("top-artists:lastPage");
-      const storedArtistId = Spicetify.LocalStorage.get(
-        "top-artists:lastArtistId"
-      );
-      if (storedPage && storedArtistId === artistId) {
-        setCurrentPage(parseInt(storedPage, 10));
-      } else {
-        setCurrentPage(1);
-      }
-    }, [artistId]);
-    (0, import_react3.useEffect)(() => {
       const fetchData = async () => {
         const indexOfLastItem2 = currentPage * itemsPerPage;
         const indexOfFirstItem2 = indexOfLastItem2 - itemsPerPage;
@@ -287,8 +280,6 @@
     }, [currentPage, listeners.items]);
     const paginate = (pageNumber) => {
       setCurrentPage(pageNumber);
-      Spicetify.LocalStorage.set("top-artists:lastPage", pageNumber.toString());
-      Spicetify.LocalStorage.set("top-artists:lastArtistId", artistId);
     };
     const generateDefaultImage = (displayName) => {
       return `https://ui-avatars.com/api/?name=${displayName}&background=1cca5a&color=fff&size=128`;
@@ -392,7 +383,7 @@
       var el = document.createElement('style');
       el.id = `topDlisteners`;
       el.textContent = (String.raw`
-  /* ../../../../Local/Temp/tmp-14204-Ey1v2y3mipwe/18d143ee41f0/global.css */
+  /* ../../../../Local/Temp/tmp-13616-wN6jhb3x3guv/18d15d910e20/global.css */
 .listeners-container {
   width: 100%;
   height: 100%;
