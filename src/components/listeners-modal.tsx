@@ -21,19 +21,6 @@ const ListenersModal = ({ listeners, artistId }: Props) => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    const storedPage = Spicetify.LocalStorage.get("top-artists:lastPage");
-    const storedArtistId = Spicetify.LocalStorage.get(
-      "top-artists:lastArtistId"
-    );
-
-    if (storedPage && storedArtistId === artistId) {
-      setCurrentPage(parseInt(storedPage, 10));
-    } else {
-      setCurrentPage(1);
-    }
-  }, [artistId]);
-
-  useEffect(() => {
     const fetchData = async () => {
       const indexOfLastItem = currentPage * itemsPerPage;
       const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -56,8 +43,6 @@ const ListenersModal = ({ listeners, artistId }: Props) => {
 
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    Spicetify.LocalStorage.set("top-artists:lastPage", pageNumber.toString());
-    Spicetify.LocalStorage.set("top-artists:lastArtistId", artistId);
   };
 
   const generateDefaultImage = (displayName: string) => {
